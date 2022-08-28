@@ -6,6 +6,8 @@
 package com.mycompany.ejerciciosjava;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -99,7 +101,7 @@ public class EjerciciosJava {
         //Ejercicio 6: distancia de Hamming. 
         //MEDIANTE 2 CADENAS, COMPARAR Y ENUMERAR LA DIFERENCIA,DEBEN SER IGUAL DE LONGITUD
            
-        
+        /*
         System.out.println("Ingrese una cadena");
         Scanner lec=new Scanner(System.in);
         String tabla1,tabla2;
@@ -107,10 +109,11 @@ public class EjerciciosJava {
         System.out.println("Ingrese otra cadena");
         tabla2=lec.nextLine();
         int distancia=0;
-        try{
+        try{//INSTRUCCIONES CUANDO NO HAY UNA EXCEPCION
             if(tabla1.length()!=tabla2.length())
                 throw new Exception("Longitudes distintas");
-        }//INSTRUCCIONES CUANDO NO HAY UNA EXCEPCION
+        }
+        
         catch(Exception error){//INSTRUCCIONES CUANDO HAY UNA EXCEPCION,TIPO DE EXCEPTCION DENTRO DEL PARENTESIS
             System.out.println("No se realizará la operación, "+error.getMessage());
             System.out.println("Reingrese una cadena");
@@ -119,13 +122,59 @@ public class EjerciciosJava {
             tabla2=lec.nextLine();
             
         }
-        finally{
+        finally{//INSTRUCCIONES TANTO SI HAY O NO EXCEPCION
             for(int i=0;i<=tabla1.length()-1;i++){
-                System.out.println("Ingreso al for");
-                if(tabla1.l){}
-            }
-            
-        }//INSTRUCCIONES TANTO SI HAY O NO EXCEPCION
+                if(tabla1.charAt(i)!=tabla2.charAt(i)){//SE PREGUNTA CON CHARAT PARA DIFERENCIAR CADA LETRA
+                    distancia++;
+                }
+            }   
+        }
         System.out.println("La distancia es "+distancia);
+        */
+        
+        //Ejercicio 7: Contador de palabras
+        
+        /*
+        System.out.println("Ingrese un texto: ");
+        String[] text;  //UTILIZO UN ARRAY PARA INVOCAR EL SPLIT
+        String texto;
+        Scanner lec= new Scanner(System.in);
+        texto=lec.nextLine();// LO DEBO GUARDAR PRIMERO EN EL TIPO DE ENTRADA Y DPS INVOCAR EL SPLIT
+        texto=texto.replaceAll("\s+","\s").trim();//EL TRIM DEVUELVE EL MISMO TEXTO SIN ESPACIOS ANTES Y DESPUES DE LAS PALABRAS
+        //EL REPLACE ALL REEMPLAZA EL PRIMER PARAMETRO POR EL SEGUNDO. SE TOMA LA VARIABLE.REPLACEALL
+        //SE DEBE GUARDAR EN LA MISMA VARIABLE PORQUE RETORNA MISMO TIPO.
+        text=texto.split(" ");// EL SPLIT CUENTA CUANTAS VECES ESTA EL PARAMETRO QUE LE PASO
+        System.out.println("La cantidad de palabras ingresadas es: "+text.length);
+        */
+        
+        
+        //Ejercicio 8: contar caracteres en una cadena de caracteres
+        /*
+        System.out.println("Ingrese una cadena ");
+        Scanner lec=new Scanner(System.in);
+        String text,text1;
+        text=lec.nextLine();
+        System.out.println("Ingrese el caracter a buscar");
+        text1=lec.nextLine();
+        Pattern patron= Pattern.compile(text1,Pattern.CASE_INSENSITIVE);
+        //el PATTERN DETERMINA LO QUE DEBO BUSCAR(TEXTO O NUMEROS,RANGO)
+        
+        
+        Matcher matcher= patron.matcher(text);//EL MATCHER SE UTILIZA PARA REALIZAR LA BUSQUEDA
+        int contador=0;
+        boolean result;
+        //CREO UN CONTADOR Y UN BOOLEANO PARA SABER SI ESTA EL NRO EN EL CARACTER
+        for(var i:text.toCharArray()){
+            result=matcher.find();//BUSCO CADA CARACTER QUE PASA POR EL FOR(CARACTER POR CARACTER)
+            //DEVUELVE UN BOOLEAN
+            if(result==true){
+                contador++;
+            }
+        }
+            
+        System.out.println("La cadena tiene: "+contador+" caracteres");
+        */
+        
+        
     }
 }
